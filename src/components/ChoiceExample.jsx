@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { useActionDialogs } from 'react-dialog-mui';
+import { useState } from "react";
+import { useActionDialogs } from "react-dialog-mui";
 
 export function ChoiceExample() {
   const { choice } = useActionDialogs();
-  const [session, setSession] = useState('');
+  const [session, setSession] = useState("");
 
   const onSubmit = async () => {
     try {
       const newSession = await choice(
-        'Switch session', // the dialog title
-        'Select one of the following sessions:', // the question for the input
+        "Switch session", // the dialog title
+        "Select one of the following sessions:", // the question for the input
         [
-          { label: 'Session 1', value: 'session_1' },
-          { label: 'Session 2', value: 'session_2' },
-          { label: 'Session 3', value: 'session_3' },
+          { label: "Session 1", value: "session_1" },
+          { label: "Session 2", value: "session_2" },
+          { label: "Session 3", value: "session_3" },
         ],
         true, // required
       );
@@ -21,7 +21,7 @@ export function ChoiceExample() {
       // when user selected a choice
       setSession(newSession);
     } catch (err) {
-      setSession('');
+      setSession("");
     }
   };
 
